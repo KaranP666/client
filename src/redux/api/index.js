@@ -5,9 +5,8 @@ const API = axios.create({ baseURL: "http://localhost:5000/" });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("user")) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("user")).token
-    }`;
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem("user")).token
+      }`;
   }
   return req;
 });
@@ -26,7 +25,12 @@ export const getAllFaculty = () => API.get("/api/admin/getallfaculty");
 export const getAllAdmin = () => API.get("/api/admin/getalladmin");
 
 export const getAllDepartment = () => API.get("/api/admin/getalldepartment");
+
 export const getAllSubject = () => API.get("/api/admin/getallsubject");
+
+export const getAllCommittee = () => API.get("/api/admin/getAllcommittee") 
+export const getAllCommitteeMember = () => API.get("/api/admin/getAllcommitteeMember") 
+
 
 export const updateAdmin = (updatedAdmin) =>
   API.post("/api/admin/updateprofile", updatedAdmin);
@@ -48,6 +52,17 @@ export const getAdmin = (admin) => API.post("/api/admin/getadmin", admin);
 
 export const addDepartment = (department) =>
   API.post("/api/admin/adddepartment", department);
+
+export const addCommittee = (committee) =>
+  API.post("/api/admin/addCommittee", committee);
+export const addCommitteeMember = (committeeMembers) =>
+  API.post("/api/admin/addCommitteeMembers", committeeMembers);
+
+export const getCommittee = (committee) =>
+  API.post("/api/admin/getCommittee", committee);
+
+export const getCommitteeMember = (committeeMember) =>
+  API.post("/api/admin/getCommitteeMember", committeeMember);
 
 export const addFaculty = (faculty) =>
   API.post("/api/admin/addfaculty", faculty);

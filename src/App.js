@@ -45,6 +45,10 @@ import CreateNotice from "./components/admin/createNotice/CreateNotice";
 // import PDFViewer from "./components/student/addCertificates/PDFViewer";
 import Submit from "./components/student/addCertificates/Submit"
 import Visualize from "./components/faculty/visualize/Visualize";
+import AddCommitteeMember from "./components/admin/addCommitteeMembers/AddCommitteeMember";
+import AllCommitte from "./components/admin/allCommittee/AllCommittee";
+// import AddCommittee from "./components/addCommitte/AddComittee";
+import AddCommitte from "./components/admin/addCommittee/AddCommittee";
 
 const App = () => {
   return (
@@ -76,6 +80,9 @@ const App = () => {
       <Route path="/admin/addsubject" element={<AddSubject />} />
       <Route path="/admin/allsubject" element={<GetSubject />} />
       <Route path="/admin/allstudent" element={<GetStudent />} />
+      <Route path="/admin/addCommitteeMember" element={<AddCommitteeMember />} />
+      <Route path="/admin/addCommittee" element={<AddCommitte />} />
+      <Route path="/admin/allCommittee" element={<AllCommitte />} />
 
       {/* Faculty  */}
 

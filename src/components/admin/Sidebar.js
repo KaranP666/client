@@ -92,6 +92,34 @@ const Sidebar = () => {
           </NavLink>
         </div>
         <div className="">
+        <NavLink
+            to="/admin/addCommittee"
+            className={({ isActive }) =>
+              isActive ? isActiveStyle : isNotActiveStyle
+            }>
+            <AddIcon className="" />
+            <h1 className="font-normal">Add Committiee</h1>
+          </NavLink>
+        <NavLink
+            to="/admin/addCommitteeMember"
+            className={({ isActive }) =>
+              isActive ? isActiveStyle : isNotActiveStyle
+            }>
+            <AddIcon className="" />
+            <h1 className="font-normal">Add Committiee Members</h1>
+          </NavLink>
+
+          <NavLink
+            to="/admin/allCommittee"
+            className={({ isActive }) =>
+              isActive ? isActiveStyle : isNotActiveStyle
+            }>
+            <EngineeringIcon className="" />
+            <h1 className="font-normal">Our Committee Members</h1>
+          </NavLink>
+
+        </div>
+        <div className="">
           <NavLink
             to="/admin/adddepartment"
             className={({ isActive }) =>

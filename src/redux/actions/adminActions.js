@@ -3,6 +3,8 @@ import {
   UPDATE_ADMIN,
   ADD_ADMIN,
   ADD_DEPARTMENT,
+  ADD_COMMITTEE,
+  ADD_COMMITTEE_MEMBER,
   ADD_FACULTY,
   GET_ALL_FACULTY,
   ADD_SUBJECT,
@@ -23,6 +25,8 @@ import {
   DELETE_SUBJECT,
   CREATE_NOTICE,
   GET_NOTICE,
+  GET_ALL_COMMITEE,
+  GET_ALL_COMMITEE_MEMBER,
 } from "../actionTypes";
 import * as api from "../api";
 
@@ -77,6 +81,22 @@ export const getAllDepartment = () => async (dispatch) => {
   try {
     const { data } = await api.getAllDepartment();
     dispatch({ type: GET_ALL_DEPARTMENT, payload: data });
+  } catch (error) {
+    console.log("Redux Error", error);
+  }
+};
+export const getAllCommittee = () => async (dispatch) => {
+  try {
+    const { data } = await api.getAllCommittee();
+    dispatch({ type: GET_ALL_COMMITEE, payload: data });
+  } catch (error) {
+    console.log("Redux Error", error);
+  }
+};
+export const getAllCommitteeMember = () => async (dispatch) => {
+  try {
+    const { data } = await api.getAllCommitteeMember();
+    dispatch({ type: GET_ALL_COMMITEE_MEMBER, payload: data });
   } catch (error) {
     console.log("Redux Error", error);
   }
@@ -171,6 +191,28 @@ export const deleteDepartment = (formData) => async (dispatch) => {
     dispatch({ type: SET_ERRORS, payload: error.response.data });
   }
 };
+
+export const addCommittee = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.addCommittee(formData);
+    alert("Committee Added Successfully");
+    dispatch({ type: ADD_COMMITTEE, payload: true });
+  } catch (error) {
+    dispatch({ type: SET_ERRORS, payload: error.response.data });
+  }
+};
+
+
+export const addCommitteeMember = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.addCommitteeMember(formData);
+    alert("Member Added Successfully");
+    dispatch({ type: ADD_COMMITTEE_MEMBER, payload: true });
+  } catch (error) {
+    dispatch({ type: SET_ERRORS, payload: error.response.data });
+  }
+};
+
 export const addDepartment = (formData) => async (dispatch) => {
   try {
     const { data } = await api.addDepartment(formData);
