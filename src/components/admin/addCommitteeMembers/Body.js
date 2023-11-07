@@ -234,9 +234,9 @@ const Body = () => {
                                             setValue({ ...value, role: e.target.value })
                                         }>
                                         <MenuItem value="">None</MenuItem>
-                                        <MenuItem value="1">Committee Incharge</MenuItem>
-                                        <MenuItem value="2">Lead</MenuItem>
-                                        <MenuItem value="3">Member</MenuItem>
+                                        <MenuItem value="Committee Incharge">Committee Incharge</MenuItem>
+                                        <MenuItem value="Lead">Lead</MenuItem>
+                                        <MenuItem value="Member">Member</MenuItem>
                                     </Select>
                                 </div>
                                 <div className={classes.adminForm3}>

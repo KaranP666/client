@@ -28,8 +28,8 @@ export const getAllDepartment = () => API.get("/api/admin/getalldepartment");
 
 export const getAllSubject = () => API.get("/api/admin/getallsubject");
 
-export const getAllCommittee = () => API.get("/api/admin/getAllcommittee") 
-export const getAllCommitteeMember = () => API.get("/api/admin/getAllcommitteeMember") 
+export const getAllCommittee = () => API.get("/api/admin/getAllcommittee");
+export const getAllCommitteeMember = () => API.get("/api/admin/getAllcommitteeMember");
 
 
 export const updateAdmin = (updatedAdmin) =>

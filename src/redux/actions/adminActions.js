@@ -93,12 +93,21 @@ export const getAllCommittee = () => async (dispatch) => {
     console.log("Redux Error", error);
   }
 };
-export const getAllCommitteeMember = () => async (dispatch) => {
+// export const getAllCommitteeMember = () => async (dispatch) => {
+//   try {
+//     const { data } = await api.getAllCommitteeMember();
+//     dispatch({ type: GET_ALL_COMMITEE_MEMBER, payload: data });
+//   } catch (error) {
+//     console.log("Redux Error", error);
+//   }
+// };
+
+export const getAllCommitteeMember = (formData) => async (dispatch) => {
   try {
-    const { data } = await api.getAllCommitteeMember();
+    const { data } = await api.getAllCommitteeMember(formData);
     dispatch({ type: GET_ALL_COMMITEE_MEMBER, payload: data });
   } catch (error) {
-    console.log("Redux Error", error);
+    dispatch({ type: SET_ERRORS, payload: error.response.data });
   }
 };
 

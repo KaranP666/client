@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BoyIcon from "@mui/icons-material/Boy";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCommittee, getStudent } from "../../../redux/actions/adminActions";
+import {  getAllCommitteeMember } from "../../../redux/actions/adminActions";
 import { MenuItem, Select } from "@mui/material";
 import Spinner from "../../../utils/Spinner";
 import * as classes from "../../../utils/styles";
@@ -9,14 +9,16 @@ import { SET_ERRORS } from "../../../redux/actionTypes";
 const Body = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState({});
-  const departments = useSelector((state) => state.admin.allDepartment);
-  const committee = useSelector((state) => state.admin.getAllCommittee);
+  // const departments = useSelector((state) => state.admin.allDepartment);
+  const committee = useSelector((state) => state.admin.allCommittee);
   const [loading, setLoading] = useState(false);
   const store = useSelector((state) => state);
   const [value, setValue] = useState({
+    // department: "", 
     committee: "",
-    year: "",
+    // year: "",
   });
+  console.log(committee)
   const [search, setSearch] = useState(false);
 
   useEffect(() => {
@@ -31,9 +33,9 @@ const Body = () => {
     setSearch(true);
     setLoading(true);
     setError({});
-    dispatch(getAllCommittee(value));
+    dispatch(getAllCommitteeMember(value));
   };
-  const committeeMembers = useSelector((state) => state.admin.committeeMembers.result);
+  const committeeMembers = useSelector((state) => state.admin.committeemembers.result);
 
   useEffect(() => {
     if (committeeMembers?.length !== 0) setLoading(false);
@@ -54,7 +56,7 @@ const Body = () => {
           <form
             className="flex flex-col space-y-2 col-span-1"
             onSubmit={handleSubmit}>
-            <label htmlFor="department">Department</label>
+            {/* <label htmlFor="department">Department</label>
             <Select
               required
               displayEmpty
@@ -70,7 +72,7 @@ const Body = () => {
                   {dp.department}
                 </MenuItem>
               ))}
-            </Select>
+            </Select> */}
             <label htmlFor="commitee">Committee Name</label>
             <Select
               required
@@ -88,7 +90,7 @@ const Body = () => {
                 </MenuItem>
               ))}
             </Select>
-            <label htmlFor="year">Year</label>
+            {/* <label htmlFor="year">Year</label>
             <Select
               required
               displayEmpty
@@ -101,7 +103,7 @@ const Body = () => {
               <MenuItem value="2">2</MenuItem>
               <MenuItem value="3">3</MenuItem>
               <MenuItem value="4">4</MenuItem>
-            </Select>
+            </Select> */}
             <button
               className={`${classes.adminFormSubmitButton} w-56`}
               type="submit">
@@ -152,9 +154,9 @@ const Body = () => {
                     <h1 className={`col-span-1 ${classes.adminDataHeading}`}>
                       Section
                     </h1>
-                    <h1 className={`col-span-2 ${classes.adminDataHeading}`}>
+                    {/* <h1 className={`col-span-2 ${classes.adminDataHeading}`}>
                       Batch
-                    </h1>
+                    </h1> */}
                   </div>
                   {committeeMembers?.map((stu, idx) => (
                     <div
@@ -166,7 +168,7 @@ const Body = () => {
                       </h1>
                       <h1
                         className={`col-span-2 ${classes.adminDataBodyFields}`}>
-                        {stu.committeeMember}
+                        {stu.name}
                       </h1>
                       <h1
                         className={`col-span-2 ${classes.adminDataBodyFields}`}>
@@ -188,10 +190,10 @@ const Body = () => {
                         className={`col-span-2 ${classes.adminDataBodyFields}`}>
                         {stu.section}
                       </h1>
-                      <h1
+                      {/* <h1
                         className={`col-span-2 ${classes.adminDataBodyFields}`}>
                         {stu.batch}
-                      </h1>
+                      </h1> */}
                     </div>
                   ))}
                 </div>
