@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BoyIcon from "@mui/icons-material/Boy";
 import { useDispatch, useSelector } from "react-redux";
-import {  getAllCommitteeMember } from "../../../redux/actions/adminActions";
+import {  getAllCommitteeMember ,getMember } from "../../../redux/actions/adminActions";
 import { MenuItem, Select } from "@mui/material";
 import Spinner from "../../../utils/Spinner";
 import * as classes from "../../../utils/styles";
@@ -33,17 +33,18 @@ const Body = () => {
     setSearch(true);
     setLoading(true);
     setError({});
-    dispatch(getAllCommitteeMember(value));
+    dispatch(getMember(value));
   };
-  const committeeMembers = useSelector((state) => state.admin.committeemembers.result);
+  const committeemembers = useSelector((state) => state.admin.commiteemember.result);
 
   useEffect(() => {
-    if (committeeMembers?.length !== 0) setLoading(false);
-  }, [committeeMembers]);
+    if (committeemembers?.length !== 0) setLoading(false);
+  }, [committeemembers]);
 
   useEffect(() => {
     dispatch({ type: SET_ERRORS, payload: {} });
   }, []);
+  // console.log(committeemembers)
 
   return (
     <div className="flex-[0.8] mt-3">
@@ -130,7 +131,7 @@ const Body = () => {
             {search &&
               !loading &&
               Object.keys(error).length === 0 &&
-              committeeMembers?.length !== 0 && (
+              committeemembers?.length !== 0 && (
                 <div className={classes.adminData}>
                   <div className="grid grid-cols-10">
                     <h1 className={`col-span-1 ${classes.adminDataHeading}`}>
@@ -148,9 +149,9 @@ const Body = () => {
                     <h1 className={`col-span-2 ${classes.adminDataHeading}`}>
                       Department
                     </h1>
-                    <h1 className={`col-span-2 ${classes.adminDataHeading}`}>
+                    {/* <h1 className={`col-span-2 ${classes.adminDataHeading}`}>
                       Email
-                    </h1>
+                    </h1> */}
                     <h1 className={`col-span-1 ${classes.adminDataHeading}`}>
                       Section
                     </h1>
@@ -158,7 +159,7 @@ const Body = () => {
                       Batch
                     </h1> */}
                   </div>
-                  {committeeMembers?.map((stu, idx) => (
+                  {committeemembers?.map((stu, idx) => (
                     <div
                       key={idx}
                       className={`${classes.adminDataBody} grid-cols-10`}>
@@ -182,10 +183,10 @@ const Body = () => {
                         className={`col-span-2 ${classes.adminDataBodyFields}`}>
                         {stu.department}
                       </h1>
-                      <h1
+                      {/* <h1
                         className={`col-span-2 ${classes.adminDataBodyFields}`}>
                         {stu.email}
-                      </h1>
+                      </h1> */}
                       <h1
                         className={`col-span-2 ${classes.adminDataBodyFields}`}>
                         {stu.section}

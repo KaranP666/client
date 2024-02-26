@@ -78,8 +78,8 @@ export const getSubject = (subject) =>
 export const addStudent = (student) =>
   API.post("/api/admin/addstudent", student);
 
-export const getStudent = (student) =>
-  API.post("/api/admin/getstudent", student);
+export const getStudent = (student) => API.post("/api/admin/getstudent", student);
+export const getMember = (commiteemember) => API.post("/api/admin/getmember", commiteemember);
 export const getNotice = (notice) => API.post("/api/admin/getnotice", notice);
 
 // Faculty

@@ -50,14 +50,14 @@ const Sidebar = () => {
             <AssignmentIndIcon className="" />
             <h1 className="font-normal">Profile</h1>
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/faculty/visualize"
             className={({ isActive }) =>
               isActive ? isActiveStyle : isNotActiveStyle
             }>
             <AssignmentIndIcon className="" />
             <h1 className="font-normal">Visualize</h1>
-          </NavLink>
+          </NavLink> */}
         </div>
         <div className="">
           <NavLink

@@ -9,6 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Spinner from "../../../utils/Spinner";
 import { ADD_COMMITTEE_MEMBER, SET_ERRORS } from "../../../redux/actionTypes";
 import * as classes from "../../../utils/styles";
+import scrollIntoView from "scroll-into-view";
 
 const Body = () => {
     const dispatch = useDispatch();
@@ -32,13 +33,13 @@ const Body = () => {
         designation: "",
     });
 
-    useEffect(() => {
-        if (Object.keys(store.errors).length !== 0) {
-            setError(store.errors);
-            errorRef.current.scrollIntoView({ behavior: "smooth" });
-            setValue({ ...value, email: "" });
-        }
-    }, [store.errors]);
+    // useEffect(() => {
+    //     if (Object.keys(store.errors).length !== 0) {
+    //         setError(store.errors);
+    //         errorRef.current.scrollIntoView({ behavior: "smooth" });
+    //         setValue({ ...value, email: "" });
+    //     }
+    // }, [store.errors]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -49,6 +49,8 @@ import AddCommitteeMember from "./components/admin/addCommitteeMembers/AddCommit
 import AllCommitte from "./components/admin/allCommittee/AllCommittee";
 // import AddCommittee from "./components/addCommitte/AddComittee";
 import AddCommitte from "./components/admin/addCommittee/AddCommittee";
+import CommitteeAttendances from "./components/admin/committeeAttendance/CommitteeAttendances";
+
 
 const App = () => {
   return (
@@ -83,6 +85,7 @@ const App = () => {
       <Route path="/admin/addCommitteeMember" element={<AddCommitteeMember />} />
       <Route path="/admin/addCommittee" element={<AddCommitte />} />
       <Route path="/admin/allCommittee" element={<AllCommitte />} />
+      <Route path="/admin/committeeAttendance" element={<CommitteeAttendances />} />
 
       {/* Faculty  */}
 

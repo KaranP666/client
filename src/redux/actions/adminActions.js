@@ -27,6 +27,7 @@ import {
   GET_NOTICE,
   GET_ALL_COMMITEE,
   GET_ALL_COMMITEE_MEMBER,
+  GET_MEMBER,
 } from "../actionTypes";
 import * as api from "../api";
 
@@ -60,6 +61,25 @@ export const getAllStudent = () => async (dispatch) => {
     console.log("Redux Error", error);
   }
 };
+
+export const getAllCommitteeMember = () => async (dispatch) => {
+  try {
+    const { data } = await api.getAllCommitteeMember();
+    dispatch({ type: GET_ALL_COMMITEE_MEMBER, payload: data });
+  } catch (error) {
+    console.log("Redux Error", error);
+  }
+};
+
+// export const getAllCommitteeMember = () => async (dispatch) => {
+//   try {
+//     const { data } = await api.getAllCommitteeMember();
+//     dispatch({ type: GET_ALL_COMMITEE_MEMBER, payload: data });
+//   } catch (error) {
+//     dispatch({ type: SET_ERRORS, payload: error.response.data });
+//   }
+// };
+
 export const getAllFaculty = () => async (dispatch) => {
   try {
     const { data } = await api.getAllFaculty();
@@ -93,23 +113,9 @@ export const getAllCommittee = () => async (dispatch) => {
     console.log("Redux Error", error);
   }
 };
-// export const getAllCommitteeMember = () => async (dispatch) => {
-//   try {
-//     const { data } = await api.getAllCommitteeMember();
-//     dispatch({ type: GET_ALL_COMMITEE_MEMBER, payload: data });
-//   } catch (error) {
-//     console.log("Redux Error", error);
-//   }
-// };
 
-export const getAllCommitteeMember = (formData) => async (dispatch) => {
-  try {
-    const { data } = await api.getAllCommitteeMember(formData);
-    dispatch({ type: GET_ALL_COMMITEE_MEMBER, payload: data });
-  } catch (error) {
-    dispatch({ type: SET_ERRORS, payload: error.response.data });
-  }
-};
+
+
 
 export const getAllSubject = () => async (dispatch) => {
   try {
@@ -284,6 +290,14 @@ export const getStudent = (formData) => async (dispatch) => {
   try {
     const { data } = await api.getStudent(formData);
     dispatch({ type: GET_STUDENT, payload: data });
+  } catch (error) {
+    dispatch({ type: SET_ERRORS, payload: error.response.data });
+  }
+};
+export const getMember = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.getMember(formData);
+    dispatch({ type: GET_MEMBER, payload: data });
   } catch (error) {
     dispatch({ type: SET_ERRORS, payload: error.response.data });
   }

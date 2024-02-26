@@ -28,6 +28,7 @@ import {
   DELETE_SUBJECT,
   CREATE_NOTICE,
   GET_NOTICE,
+  GET_MEMBER,
 } from "../actionTypes";
 
 const initialState = {
@@ -50,6 +51,7 @@ const initialState = {
   allDepartment: [],
   committees: [],
   committeemembers: [],
+  commiteemember:[],
   students: [],
   faculties: [],
   subjects: [],
@@ -144,7 +146,7 @@ const adminReducer = (state = initialState, action) => {
     case GET_ALL_COMMITEE:
       return {
         ...state,
-        committees: action.payload,
+        allCommittee: action.payload,
       };
     case GET_ALL_COMMITEE_MEMBER:
       return {
@@ -200,6 +202,11 @@ const adminReducer = (state = initialState, action) => {
       return {
         ...state,
         students: action.payload,
+      };
+    case GET_MEMBER:
+      return {
+        ...state,
+        commiteemember : action.payload,
       };
     case GET_ALL_STUDENT:
       return {

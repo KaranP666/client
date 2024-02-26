@@ -118,6 +118,15 @@ const Sidebar = () => {
             <h1 className="font-normal">Our Committee Members</h1>
           </NavLink>
 
+          <NavLink
+            to="/admin/committeeAttendance"
+            className={({ isActive }) =>
+              isActive ? isActiveStyle : isNotActiveStyle
+            }>
+            <AddIcon className="" />
+            <h1 className="font-normal">Committee Attendance</h1>
+          </NavLink>
+
         </div>
         <div className="">
           <NavLink
