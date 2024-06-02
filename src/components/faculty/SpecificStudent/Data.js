@@ -11,7 +11,4 @@ const Data = ({ label, value }) => {
   );
 };
 
-
-
-
 export default Data;

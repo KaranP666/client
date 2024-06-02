@@ -7,9 +7,15 @@ import {
   MARKS_UPLOADED,
   UPDATE_FACULTY,
   UPDATE_PASSWORD,
+  GET_PERTICULAR_STUDENT_DETAILS,
+  UPLOAD_FACULTY_PDF
 } from "../actionTypes";
 
 const initialState = {
+  pdfData: null,
+  uploading: false,
+  successAlert: null,
+  error: null,
   authData: null,
   updatedPassword: false,
   updatedFaculty: false,
@@ -17,6 +23,7 @@ const initialState = {
   marksUploaded: false,
   attendanceUploaded: false,
   tests: [],
+  student: null,
 };
 
 const facultyReducer = (state = initialState, action) => {
@@ -56,6 +63,19 @@ const facultyReducer = (state = initialState, action) => {
       return {
         ...state,
         attendanceUploaded: action.payload,
+      };
+    case GET_PERTICULAR_STUDENT_DETAILS:
+      return {
+        ...state,
+        student: action.payload,
+        error: null,
+      };
+    case UPLOAD_FACULTY_PDF:
+      return {
+        ...state,
+        uploading: false,
+        successAlert: 'File uploaded successfully!',
+        error: null,
       };
 
     default:

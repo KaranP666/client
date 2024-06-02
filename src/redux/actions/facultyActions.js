@@ -8,6 +8,8 @@ import {
   GET_STUDENT,
   MARKS_UPLOADED,
   ATTENDANCE_MARKED,
+  GET_PERTICULAR_STUDENT_DETAILS,
+  UPLOAD_FACULTY_PDF
 } from "../actionTypes";
 import * as api from "../api";
 
@@ -21,6 +23,26 @@ export const facultySignIn = (formData, navigate) => async (dispatch) => {
     dispatch({ type: SET_ERRORS, payload: error.response.data });
   }
 };
+
+// export const facultySignIn = (formData, navigate) => async (dispatch) => {
+//   try {
+//     const response = await api.facultySignIn(formData);
+//     const data = response.data; // Assuming response structure is { data: {...} }
+    
+//     if (data && data.result && data.result.passwordUpdated) {
+//       navigate("/faculty/home");
+//     } else {
+//       navigate("/faculty/password");
+//     }
+    
+//     dispatch({ type: FACULTY_LOGIN, data });
+//   } catch (error) {
+//     // Log or handle error response
+//     console.error("Error in facultySignIn:", error);
+//     dispatch({ type: SET_ERRORS, payload: error.response?.data });
+//   }
+// };
+
 
 export const facultyUpdatePassword =
   (formData, navigate) => async (dispatch) => {
@@ -104,6 +126,24 @@ export const markAttendance =
       const { data } = await api.markAttendance(formData);
       alert("Attendance Marked Successfully");
       dispatch({ type: ATTENDANCE_MARKED, payload: true });
+    } catch (error) {
+      dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+  };
+
+  export const getStudentByUsername = (username) => async (dispatch) => {
+    try {
+      const { data } = await api.getStudentByUsername(username); // Make request to backend API
+      dispatch({ type: GET_PERTICULAR_STUDENT_DETAILS, payload: data.result }); // Dispatch action with student data
+    } catch (error) {
+      dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+  };
+
+  export const uploadPDF = (formData) => async (dispatch) => {
+    try {
+      const { data } = await api.facultyUploadPDF(formData);
+      dispatch({ type: UPDATE_FACULTY, payload: data });
     } catch (error) {
       dispatch({ type: SET_ERRORS, payload: error.response.data });
     }

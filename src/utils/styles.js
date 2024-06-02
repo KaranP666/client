@@ -15,7 +15,7 @@ export const adminFormButton = "self-center space-x-6";
 
 export const adminForm0 = "flex flex-col mb-6";
 export const adminForm1 = "flex py-10 ml-10 space-x-28";
-export const adminForm2l = "flex flex-col space-y-10";
+export const adminForm2l = "flex flex-col space-y-10 pr-6";
 export const adminForm2r = "flex flex-col space-y-10 pr-6";
 export const adminForm3 = "grid grid-cols-2  gap-10";
 

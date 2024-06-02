@@ -8,7 +8,8 @@ import Body from "./Body";
 const AddCommitteeMember = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllDepartment(),getAllCommittee());
+    dispatch(getAllDepartment());
+    dispatch(getAllCommittee());
   }, [dispatch]);
   return (
     <div className="bg-[#d6d9e0] h-screen flex items-center justify-center">

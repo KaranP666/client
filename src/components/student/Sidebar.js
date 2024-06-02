@@ -4,7 +4,9 @@ import HomeIcon from "@mui/icons-material/Home";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import AddIcon from "@mui/icons-material/Add";
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { useDispatch } from "react-redux";
+import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import decode from "jwt-decode";
 const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize hover:bg-gray-200 py-2 my-1";
@@ -50,6 +52,22 @@ const Sidebar = () => {
             <AssignmentIndIcon className="" />
             <h1 className="font-normal">Profile</h1>
           </NavLink>
+          <NavLink
+            to="/student/visualize"
+            className={({ isActive }) =>
+              isActive ? isActiveStyle : isNotActiveStyle
+            }>
+            <AssessmentOutlinedIcon className="" />
+            <h1 className="font-normal">Statistics</h1>
+          </NavLink>
+          <NavLink
+            to="/student/achievements"
+            className={({ isActive }) =>
+              isActive ? isActiveStyle : isNotActiveStyle
+            }>
+            <WorkspacePremiumIcon className="" />
+            <h1 className="font-normal">Achievements</h1>
+          </NavLink>
         </div>
         <div className="">
           <NavLink
@@ -77,6 +95,7 @@ const Sidebar = () => {
             <AddIcon className="" />
             <h1 className="font-normal">Add Certification</h1>
           </NavLink>
+          
         </div>
         <div className="">
           <NavLink

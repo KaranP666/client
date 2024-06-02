@@ -81,6 +81,13 @@ export const addStudent = (student) =>
 export const getStudent = (student) => API.post("/api/admin/getstudent", student);
 export const getMember = (commiteemember) => API.post("/api/admin/getmember", commiteemember);
 export const getNotice = (notice) => API.post("/api/admin/getnotice", notice);
+// export const getPDF = (username) => {
+//   return API.get(`/api/student/pdf/${username}`, { responseType: 'blob' });
+// };
+export const getPDF = (username) => API.get(`/api/student/pdf/${username}`, { responseType: 'blob' });
+console.log(getPDF);
+
+export const UploadAttendencePDF = (formData) => API.patch("/api/admin/uploadpdf", formData);
 
 // Faculty
 
@@ -101,6 +108,11 @@ export const uploadMarks = (data) => API.post("/api/faculty/uploadmarks", data);
 export const markAttendance = (data) =>
   API.post("/api/faculty/markattendance", data);
 
+  export const getStudentByUsername = (username) =>
+  API.get(`/api/faculty/students/${username}`);
+
+  export const facultyUploadPDF = (formData) => API.patch("/api/faculty/uploadpdf", formData);
+
 // Student
 
 export const studentSignIn = (formData) =>
@@ -115,3 +127,10 @@ export const getTestResult = (testResult) =>
   API.post("/api/student/testresult", testResult);
 export const getAttendance = (attendance) =>
   API.post("/api/student/attendance", attendance);
+
+
+  export const getStudentDetails = (getDetails) =>
+  API.post("/api/student/getDetails", getDetails);
+
+  // export const uploadPDF = (formData) => API.post("/api/upload-pdf", formData);
+  export const uploadPDF = (formData) => API.patch("/api/student/uploadpdf", formData);

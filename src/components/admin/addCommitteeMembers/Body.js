@@ -219,8 +219,12 @@ const Body = () => {
                                             setValue({ ...value, committee: e.target.value })
                                         }>
                                         <MenuItem value="">None</MenuItem>
-                                        <MenuItem value="CSI">CSI</MenuItem>
-                                        <MenuItem value="GDSC">GDSC</MenuItem>
+                                        {committees?.map((dp, idx) => (
+                      <MenuItem key={idx} value={dp.committee}>
+                        {dp.committee}
+                      </MenuItem>
+                    ))}
+                                        
                                     </Select>
                                 </div>
                                 <div className={classes.adminForm3}>

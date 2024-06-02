@@ -28,6 +28,7 @@ import {
   GET_ALL_COMMITEE,
   GET_ALL_COMMITEE_MEMBER,
   GET_MEMBER,
+  ATTENDANCE_PDF
 } from "../actionTypes";
 import * as api from "../api";
 
@@ -307,6 +308,15 @@ export const getNotice = (formData) => async (dispatch) => {
   try {
     const { data } = await api.getNotice(formData);
     dispatch({ type: GET_NOTICE, payload: data });
+  } catch (error) {
+    dispatch({ type: SET_ERRORS, payload: error.response.data });
+  }
+};
+
+export const uploadPDF = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.UploadAttendencePDF(formData);
+    dispatch({ type: ATTENDANCE_PDF , payload: data });
   } catch (error) {
     dispatch({ type: SET_ERRORS, payload: error.response.data });
   }

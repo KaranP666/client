@@ -50,10 +50,21 @@ import AllCommitte from "./components/admin/allCommittee/AllCommittee";
 // import AddCommittee from "./components/addCommitte/AddComittee";
 import AddCommitte from "./components/admin/addCommittee/AddCommittee";
 import CommitteeAttendances from "./components/admin/committeeAttendance/CommitteeAttendances";
+import Visualization from "./components/student/Vizualization/Visualization";
+import StudentDetails from "./components/faculty/studentDetails/StudentDetails";
+import SpesificStudent from "./components/faculty/SpecificStudent/SpecificStudent";
+import SpecificStudent from "./components/faculty/SpecificStudent/SpecificStudent";
+import Achievements from './components/student/achievements/Achievements'
+import { Provider } from "react-redux";
+import store from "./redux/store/store";
+import FacultySubmit from "./components/faculty/addCertificates/FacultySubmit";
+import FacultyAchievements from "./components/faculty/achievements/FacultyAchievements";
+import GetAttendance from "./components/admin/getAttendance/GetAttendance"
 
 
 const App = () => {
   return (
+   
     <Routes>
       <Route exact path="/" element={<Login />} />
 
@@ -86,6 +97,7 @@ const App = () => {
       <Route path="/admin/addCommittee" element={<AddCommitte />} />
       <Route path="/admin/allCommittee" element={<AllCommitte />} />
       <Route path="/admin/committeeAttendance" element={<CommitteeAttendances />} />
+      <Route path="/admin/getCommitteeAttendance" element={<GetAttendance />} />
 
       {/* Faculty  */}
 
@@ -99,6 +111,11 @@ const App = () => {
       <Route path="/faculty/uploadmarks" element={<UploadMarks />} />
       <Route path="/faculty/markattendance" element={<MarkAttendance />} />
       <Route path="/faculty/visualize" element={<Visualize />} />
+      <Route path="/faculty/studentdetail" element={<StudentDetails/>} />
+      <Route path="/faculty/specificstudent" element={<SpecificStudent/>} />
+      <Route path="/faculty/addcertificate" element={<FacultySubmit/>} />
+      <Route path="/faculty/getCerificate" element={< FacultyAchievements/>} />
+
 
       {/* Student  */}
 
@@ -112,7 +129,11 @@ const App = () => {
       <Route path="/student/testresult" element={<TestResult />} />
       <Route path="/student/attendance" element={<Attendance />} />
       <Route path="/student/addCertificates" element={<Submit />} />
+      <Route path="/student/visualize" element={<Visualization/>} />
+      <Route path="/student/achievements" element={<Achievements/>} />
     </Routes>
+   
+ 
   );
 };
 

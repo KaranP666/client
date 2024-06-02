@@ -10,6 +10,8 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import { setRef } from "@mui/material";
+import GetAppOutlinedIcon from '@mui/icons-material/GetAppOutlined';
+
 const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize hover:bg-gray-200 py-2 my-1";
 const isActiveStyle =
@@ -125,6 +127,14 @@ const Sidebar = () => {
             }>
             <AddIcon className="" />
             <h1 className="font-normal">Committee Attendance</h1>
+          </NavLink>
+          <NavLink
+            to="/admin/getCommitteeAttendance"
+            className={({ isActive }) =>
+              isActive ? isActiveStyle : isNotActiveStyle
+            }>
+            <GetAppOutlinedIcon className="" />
+            <h1 className="font-normal">Get Committee Attendance</h1>
           </NavLink>
 
         </div>

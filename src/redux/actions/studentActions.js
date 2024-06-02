@@ -6,6 +6,9 @@ import {
   ATTENDANCE,
   UPDATE_STUDENT,
   GET_SUBJECT,
+  GET_STUDENT_DETAILS,
+  UPLOAD_PDF,
+  GET_PDF
 } from "../actionTypes";
 import * as api from "../api";
 
@@ -32,12 +35,30 @@ export const studentUpdatePassword =
     }
   };
 
+// export const updateStudent = (formData) => async (dispatch) => {
+//   try {
+//     const { data } = await api.updateStudent(formData);
+//     dispatch({ type: UPDATE_STUDENT, payload: true });
+//   } catch (error) {
+//     dispatch({ type: SET_ERRORS, payload: error.response.data });
+//   }
+// };
+
 export const updateStudent = (formData) => async (dispatch) => {
   try {
     const { data } = await api.updateStudent(formData);
-    dispatch({ type: UPDATE_STUDENT, payload: true });
+    dispatch({ type: GET_STUDENT_DETAILS, payload: true });
   } catch (error) {
     dispatch({ type: SET_ERRORS, payload: error.response.data });
+  }
+};
+
+export const getStudentDetails = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.getStudentDetails(formData);
+    dispatch({ type: GET_STUDENT_DETAILS, payload: data });
+  } catch (error) {
+    dispatch({ type: GET_STUDENT_DETAILS, payload: error.response.data });
   }
 };
 
@@ -83,3 +104,25 @@ export const getAttendance =
       dispatch({ type: SET_ERRORS, payload: error.response.data });
     }
   };
+
+  export const getPDF = (username) => async (dispatch) => {
+    try {
+        // Make an API request to fetch the PDF file.
+        const { data } = await api.getPDF(username);
+        // Dispatch the action type GET_PDF with the received data.
+        dispatch({ type: GET_PDF, payload: data });
+    } catch (error) {
+        // Handle errors by dispatching SET_ERRORS with the error response data.
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+};
+
+
+export const uploadPDF = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.uploadPDF(formData);
+    dispatch({ type: UPLOAD_PDF, payload: data });
+  } catch (error) {
+    dispatch({ type: SET_ERRORS, payload: error.response.data });
+  }
+};

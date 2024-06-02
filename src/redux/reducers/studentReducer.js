@@ -5,9 +5,14 @@ import {
   UPDATE_PASSWORD,
   TEST_RESULT,
   ATTENDANCE,
+  GET_STUDENT_DETAILS,
+  UPLOAD_PDF,
+  SET_ERRORS,
+  GET_PDF
 } from "../actionTypes";
 
 const initialState = {
+  pdfData: null,
   authData: null,
   updatedPassword: false,
   updatedStudent: false,
@@ -17,6 +22,10 @@ const initialState = {
   testResult: [],
   tests: [],
   attendance: [],
+  getStudentDetails: {},
+  uploading: false,
+  successAlert: null,
+  error: null,
 };
 
 const studentReducer = (state = initialState, action) => {
@@ -47,6 +56,31 @@ const studentReducer = (state = initialState, action) => {
         ...state,
         attendance: action.payload,
       };
+
+    case GET_STUDENT_DETAILS:
+      return {
+        ...state,
+        getStudentDetails: action.payload,
+      }
+    case UPLOAD_PDF:
+      return {
+        ...state,
+        uploading: false,
+        successAlert: 'File uploaded successfully!',
+        error: null,
+      };
+    case GET_PDF:
+       return {
+           ...state,
+           pdfData: action.payload, 
+      };
+    case SET_ERRORS:
+      return {
+        ...state,
+        uploading: false,
+        successAlert: null,
+        error: action.payload,
+      };  
 
     default:
       return state;

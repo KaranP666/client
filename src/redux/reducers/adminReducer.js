@@ -29,6 +29,7 @@ import {
   CREATE_NOTICE,
   GET_NOTICE,
   GET_MEMBER,
+  ATTENDANCE_PDF,
 } from "../actionTypes";
 
 const initialState = {
@@ -63,6 +64,10 @@ const initialState = {
   studentDeleted: false,
   subjectDeleted: false,
   noticeCreated: false,
+  pdfData: null,
+  uploading: false,
+  successAlert: null,
+  error: null,
 };
 
 const adminReducer = (state = initialState, action) => {
@@ -213,6 +218,14 @@ const adminReducer = (state = initialState, action) => {
         ...state,
         allStudent: action.payload,
       };
+    case ATTENDANCE_PDF:
+      return {
+          ...state,
+          uploading: false,
+          successAlert: 'File uploaded successfully!',
+          error: null,
+        };
+  
     default:
       return state;
   }

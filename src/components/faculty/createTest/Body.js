@@ -142,6 +142,28 @@ const Body = () => {
                     <MenuItem value="4">4</MenuItem>
                   </Select>
                 </div>
+                {/* <div className={classes.adminForm3}>
+                  <h1 className={classes.adminLabel}>Semester    :</h1>
+                  <Select
+                    required
+                    displayEmpty
+                    sx={{ height: 36 }}
+                    inputProps={{ "aria-label": "Without label" }}
+                    value={value.year}
+                    onChange={(e) =>
+                      setValue({ ...value, year: e.target.value })
+                    }>
+                    <MenuItem value="">None</MenuItem>
+                    <MenuItem value="1">1</MenuItem>
+                    <MenuItem value="2">2</MenuItem>
+                    <MenuItem value="3">3</MenuItem>
+                    <MenuItem value="4">4</MenuItem>
+                    <MenuItem value="4">5</MenuItem>
+                    <MenuItem value="4">6</MenuItem>
+                    <MenuItem value="4">7</MenuItem>
+                    <MenuItem value="4">8</MenuItem>
+                  </Select>
+                </div> */}
               </div>
               <div className={classes.adminForm2r}>
                 <div className={classes.adminForm3}>
@@ -187,7 +209,27 @@ const Body = () => {
                     <MenuItem value="2">2</MenuItem>
                     <MenuItem value="3">3</MenuItem>
                   </Select>
+
+                  
                 </div>
+                {/* <div className={classes.adminForm3}>
+                  <h1 className={classes.adminLabel}>Test Type :</h1>
+                  <Select
+                    required
+                    displayEmpty
+                    sx={{ height: 36 }}
+                    inputProps={{ "aria-label": "Without label" }}
+                    value={value.year}
+                    onChange={(e) =>
+                      setValue({ ...value, year: e.target.value })
+                    }>
+                    <MenuItem value="">None</MenuItem>
+                    <MenuItem value="1">IA 1</MenuItem>
+                    <MenuItem value="2">IA 2</MenuItem>
+                    <MenuItem value="3">Semester Exam</MenuItem>
+                  
+                  </Select>
+                </div> */}
               </div>
             </div>
             <div className={classes.adminFormButton}>
